@@ -1,6 +1,6 @@
 Name:           xrt
 Version:        2.21.75
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Xilinx Runtime (XRT) for AMD NPU
 License:        Apache-2.0 AND GPLv2 AND MIT
 URL:            https://github.com/Xilinx/XRT
@@ -187,6 +187,9 @@ echo "/opt/xilinx/xrt/python" > %{buildroot}%{python3_sitearch}/xrt.pth
 
 
 %changelog
+* Wed Jun 03 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.21.75-3
+- Add system-wide integrations for binaries, ldconfig, and python
+
 * Tue Jun 02 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.21.75-2
 - Fix CMake 4 detection bug in Fedora 44+
 
