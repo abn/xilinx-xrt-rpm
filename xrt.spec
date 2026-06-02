@@ -69,6 +69,14 @@ Provides:       xrt-devel = %{version}-%{release}
 %description devel
 Development headers and libraries for Xilinx Runtime (XRT).
 
+%package -n python3-xrt
+Summary:        Python 3 bindings for Xilinx Runtime
+Requires:       %{name}-base%{?_isa} = %{version}-%{release}
+Provides:       python3-xrt = %{version}-%{release}
+
+%description -n python3-xrt
+Python 3 bindings for Xilinx Runtime (XRT).
+
 %prep
 %autosetup -n %{name}-%{version}
 
@@ -123,7 +131,9 @@ cp -a xdna-driver/build_plugin/install_root/opt/xilinx/xrt/* %{buildroot}/opt/xi
 /opt/xilinx/xrt/share/completions/
 /opt/xilinx/xrt/share/doc/
 /opt/xilinx/xrt/version.json
+/opt/xilinx/xrt/license/
 /etc/OpenCL/vendors/xilinx.icd
+
 
 %files npu
 /opt/xilinx/xrt/lib64/libxdp_core.so.2*
@@ -148,6 +158,10 @@ cp -a xdna-driver/build_plugin/install_root/opt/xilinx/xrt/* %{buildroot}/opt/xi
 /opt/xilinx/xrt/lib64/libxrt_coreutil.a
 /opt/xilinx/xrt/lib64/pkgconfig/
 /opt/xilinx/xrt/share/cmake/
+
+%files -n python3-xrt
+/opt/xilinx/xrt/python/
+
 
 
 %changelog
