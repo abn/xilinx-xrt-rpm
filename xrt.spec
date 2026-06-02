@@ -122,6 +122,19 @@ fi
 # 2. Copy XRT Plugin files
 cp -a xdna-driver/build_plugin/install_root/opt/xilinx/xrt/* %{buildroot}/opt/xilinx/xrt/
 
+# Create symlinks for binaries to be in standard path
+mkdir -p %{buildroot}%{_bindir}
+ln -sf /opt/xilinx/xrt/bin/xrt-smi %{buildroot}%{_bindir}/xrt-smi
+ln -sf /opt/xilinx/xrt/bin/xclbinutil %{buildroot}%{_bindir}/xclbinutil
+
+# Register dynamic library path in ldconfig
+mkdir -p %{buildroot}%{_sysconfdir}/ld.so.conf.d
+echo "/opt/xilinx/xrt/lib64" > %{buildroot}%{_sysconfdir}/ld.so.conf.d/xrt-x86_64.conf
+
+# Python path configuration file
+mkdir -p %{buildroot}%{python3_sitearch}
+echo "/opt/xilinx/xrt/python" > %{buildroot}%{python3_sitearch}/xrt.pth
+
 
 %files base
 %dir /opt/xilinx
@@ -132,6 +145,9 @@ cp -a xdna-driver/build_plugin/install_root/opt/xilinx/xrt/* %{buildroot}/opt/xi
 /opt/xilinx/xrt/lib64/libxrt++.so.2*
 /opt/xilinx/xrt/lib64/libxrt_core.so.2*
 /opt/xilinx/xrt/lib64/libxrt_coreutil.so.2*
+%{_bindir}/xrt-smi
+%{_bindir}/xclbinutil
+%{_sysconfdir}/ld.so.conf.d/xrt-x86_64.conf
 /opt/xilinx/xrt/setup.*
 /opt/xilinx/xrt/share/completions/
 /opt/xilinx/xrt/share/doc/
@@ -166,6 +182,7 @@ cp -a xdna-driver/build_plugin/install_root/opt/xilinx/xrt/* %{buildroot}/opt/xi
 
 %files -n python3-xrt
 /opt/xilinx/xrt/python/
+%{python3_sitearch}/xrt.pth
 
 
 
