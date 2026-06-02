@@ -1,6 +1,6 @@
 Name:           xrt
 Version:        2.21.75
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Xilinx Runtime (XRT) for AMD NPU
 License:        Apache-2.0 AND GPLv2 AND MIT
 URL:            https://github.com/Xilinx/XRT
@@ -170,5 +170,8 @@ cp -a xdna-driver/build_plugin/install_root/opt/xilinx/xrt/* %{buildroot}/opt/xi
 
 
 %changelog
+* Tue Jun 02 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.21.75-2
+- Fix CMake 4 detection bug in Fedora 44+
+
 * Tue Jun 02 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.21.75-1
 - Initial unified packaging of XRT base, npu, plugin, and devel
