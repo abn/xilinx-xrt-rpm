@@ -100,8 +100,15 @@ mkdir -p %{buildroot}/opt/xilinx/xrt
 # 1. Copy XRT files from build/Release
 cp -a xdna-driver/xrt/build/Release/opt/xilinx/xrt/* %{buildroot}/opt/xilinx/xrt/
 
+# Copy etc/ OpenCL vendors file if it exists
+if [ -d xdna-driver/xrt/build/Release/etc ]; then
+    mkdir -p %{buildroot}/etc
+    cp -a xdna-driver/xrt/build/Release/etc/* %{buildroot}/etc/
+fi
+
 # 2. Copy XRT Plugin files
 cp -a xdna-driver/build_plugin/install_root/opt/xilinx/xrt/* %{buildroot}/opt/xilinx/xrt/
+
 
 %files base
 %dir /opt/xilinx
