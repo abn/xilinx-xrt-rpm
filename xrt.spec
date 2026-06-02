@@ -81,6 +81,11 @@ Python 3 bindings for Xilinx Runtime (XRT).
 %autosetup -n %{name}-%{version}
 
 %build
+# Fix upstream CMake 4 detection bug by overriding path for cmake3
+mkdir -p bin
+ln -sf /usr/bin/cmake bin/cmake3
+export PATH=$PWD/bin:$PATH
+
 # 1. Build XRT
 pushd xdna-driver/xrt/build
 ./build.sh -npu -opt -noctest -noinit -install_prefix /opt/xilinx/xrt
