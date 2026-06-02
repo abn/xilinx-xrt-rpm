@@ -136,6 +136,17 @@ exec /opt/xilinx/xrt/bin/xclbinutil "$@"
 EOF
 chmod +x %{buildroot}%{_bindir}/xclbinutil
 
+# Install smi_install_archive.sh script
+cp xdna-driver/xrt/src/runtime_src/core/tools/xbutil2/smi_install_archive.sh %{buildroot}/opt/xilinx/xrt/bin/
+chmod +x %{buildroot}/opt/xilinx/xrt/bin/smi_install_archive.sh
+
+# Create wrapper script for smi_install_archive.sh in /usr/bin/
+cat << 'EOF' > %{buildroot}%{_bindir}/smi_install_archive.sh
+#!/bin/sh
+exec /opt/xilinx/xrt/bin/smi_install_archive.sh "$@"
+EOF
+chmod +x %{buildroot}%{_bindir}/smi_install_archive.sh
+
 # Register dynamic library path in ldconfig
 mkdir -p %{buildroot}%{_sysconfdir}/ld.so.conf.d
 echo "/opt/xilinx/xrt/lib64" > %{buildroot}%{_sysconfdir}/ld.so.conf.d/xrt-x86_64.conf
@@ -156,6 +167,7 @@ echo "/opt/xilinx/xrt/python" > %{buildroot}%{python3_sitearch}/xrt.pth
 /opt/xilinx/xrt/lib64/libxrt_coreutil.so.2*
 %{_bindir}/xrt-smi
 %{_bindir}/xclbinutil
+%{_bindir}/smi_install_archive.sh
 %{_sysconfdir}/ld.so.conf.d/xrt-x86_64.conf
 /opt/xilinx/xrt/setup.*
 /opt/xilinx/xrt/share/completions/
