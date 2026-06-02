@@ -75,7 +75,7 @@ Development headers and libraries for Xilinx Runtime (XRT).
 %build
 # 1. Build XRT
 pushd xdna-driver/xrt/build
-./build.sh -npu -opt -noctest -install_prefix /opt/xilinx/xrt
+./build.sh -npu -opt -noctest -noinit -install_prefix /opt/xilinx/xrt
 popd
 
 # 2. Build xrt-plugin-amdxdna
