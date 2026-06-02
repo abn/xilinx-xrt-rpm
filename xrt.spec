@@ -1,6 +1,6 @@
 Name:           xrt
 Version:        2.21.75
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Xilinx Runtime (XRT) for AMD NPU
 License:        Apache-2.0 AND GPLv2 AND MIT
 URL:            https://github.com/Xilinx/XRT
@@ -208,6 +208,9 @@ echo "/opt/xilinx/xrt/python" > %{buildroot}%{python3_sitearch}/xrt.pth
 
 
 %changelog
+* Wed Jun 03 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.21.75-5
+- Package smi_install_archive.sh script and wrapper in /usr/bin
+
 * Wed Jun 03 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.21.75-4
 - Use shell wrappers instead of symlinks in /usr/bin to resolve path issues
 
