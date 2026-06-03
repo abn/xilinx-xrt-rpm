@@ -24,6 +24,10 @@ sudo dnf copr enable abn/amd-npu
 # Install runtime components
 sudo dnf install xrt-base xrt-npu xrt-plugin-amdxdna
 
+# Download and install the validation firmware archive for your NPU platform (required for xrt-smi validate)
+# Supported archives: xrt_smi_phx.a, xrt_smi_strx.a, xrt_smi_npu3.a, xrt_smi_ve2.a
+sudo smi_install_archive.sh xrt_smi_strx.a 2.25.0
+
 # Install development files (optional)
 sudo dnf install xrt-devel python3-xrt
 ```
