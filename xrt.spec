@@ -1,6 +1,6 @@
 Name:           xrt
-Version:        2.21.75
-Release:        5%{?dist}
+Version:        2.26.51
+Release:        1%{?dist}
 Summary:        Xilinx Runtime (XRT) for AMD NPU
 License:        Apache-2.0 AND GPLv2 AND MIT
 URL:            https://github.com/Xilinx/XRT
