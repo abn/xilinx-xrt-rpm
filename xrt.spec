@@ -211,6 +211,9 @@ echo "/opt/xilinx/xrt/python" > %{buildroot}%{python3_sitearch}/xrt.pth
 
 %changelog
 * Tue Aug 11 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.26.74-3
+- wip: bump xrt to 2.26.74-3 and update xdna-driver (arun.neelicattu@gmail.com)
+
+* Tue Aug 11 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.26.74-3
 - Update xdna-driver submodule and bump Release to 3
 
 * Sat Aug 01 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.26.74-2
