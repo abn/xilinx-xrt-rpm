@@ -1,6 +1,6 @@
 Name:           xrt
 Version:        2.26.74
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Xilinx Runtime (XRT) for AMD NPU
 License:        Apache-2.0 AND GPLv2 AND MIT
 URL:            https://github.com/Xilinx/XRT
@@ -165,6 +165,7 @@ echo "/opt/xilinx/xrt/python" > %{buildroot}%{python3_sitearch}/xrt.pth
 /opt/xilinx/xrt/lib64/libxrt++.so.2*
 /opt/xilinx/xrt/lib64/libxrt_core.so.2*
 /opt/xilinx/xrt/lib64/libxrt_coreutil.so.2*
+/opt/xilinx/xrt/lib64/libxrt_hip.so.2*
 %{_bindir}/xrt-smi
 %{_bindir}/xclbinutil
 %{_bindir}/smi_install_archive.sh
@@ -191,6 +192,7 @@ echo "/opt/xilinx/xrt/python" > %{buildroot}%{python3_sitearch}/xrt.pth
 /opt/xilinx/xrt/lib64/libxrt++.so
 /opt/xilinx/xrt/lib64/libxrt_core.so
 /opt/xilinx/xrt/lib64/libxrt_coreutil.so
+/opt/xilinx/xrt/lib64/libxrt_hip.so
 /opt/xilinx/xrt/lib64/libvxdna.so
 /opt/xilinx/xrt/lib64/libaiebu.a
 /opt/xilinx/xrt/lib64/libcert_dtrace.a
@@ -208,6 +210,9 @@ echo "/opt/xilinx/xrt/python" > %{buildroot}%{python3_sitearch}/xrt.pth
 
 
 %changelog
+* Tue Aug 11 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.26.74-3
+- Update xdna-driver submodule and bump Release to 3
+
 * Sat Aug 01 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.26.74-2
 - Upgrade XRT version to 2.26.74 and update xdna-driver submodule
 
