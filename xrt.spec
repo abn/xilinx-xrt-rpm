@@ -210,6 +210,10 @@ echo "/opt/xilinx/xrt/python" > %{buildroot}%{python3_sitearch}/xrt.pth
 
 
 %changelog
+* Sun Aug 23 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.26.95-1
+- Update XRT version to 2.26.95 and update xdna-driver submodule
+  (arun.neelicattu@gmail.com)
+
 * Sat Aug 22 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.26.95-1
 - Upgrade XRT version to 2.26.95 and update xdna-driver submodule
 
