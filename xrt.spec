@@ -1,6 +1,6 @@
 Name:           xrt
 Version:        2.26.95
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Xilinx Runtime (XRT) for AMD NPU
 License:        Apache-2.0 AND GPLv2 AND MIT
 URL:            https://github.com/Xilinx/XRT
@@ -210,6 +210,9 @@ echo "/opt/xilinx/xrt/python" > %{buildroot}%{python3_sitearch}/xrt.pth
 
 
 %changelog
+* Wed Sep 02 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.26.95-2
+- Update xdna-driver submodule and bump Release to 2
+
 * Sun Aug 23 2026 Arun Babu Neelicattu <arun.neelicattu@gmail.com> 2.26.95-1
 - Update XRT version to 2.26.95 and update xdna-driver submodule
   (arun.neelicattu@gmail.com)
